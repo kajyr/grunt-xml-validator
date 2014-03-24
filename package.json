@@ -1,0 +1,42 @@
+{
+  "name": "grunt-xml-validator",
+  "description": "Grunt plugin to validate XML files",
+  "version": "0.1.0",
+  "homepage": "https://github.com/kajyr/grunt-xml-validator",
+  "author": {
+    "name": "Carlo",
+    "email": "carlo.panzi@gmail.com",
+    "url": "http://kajyr.github.io"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/kajyr/grunt-xml-validator.git"
+  },
+  "bugs": {
+    "url": "https://github.com/kajyr/grunt-xml-validator/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/kajyr/grunt-xml-validator/blob/master/LICENSE-MIT"
+    }
+  ],
+  "engines": {
+    "node": ">= 0.8.0"
+  },
+  "scripts": {
+    "test": "grunt test"
+  },
+  "devDependencies": {
+    "grunt-contrib-jshint": "~0.6.0",
+    "grunt-contrib-clean": "~0.4.0",
+    "grunt-contrib-nodeunit": "~0.2.0",
+    "grunt": "~0.4.4"
+  },
+  "peerDependencies": {
+    "grunt": "~0.4.4"
+  },
+  "keywords": [
+    "gruntplugin"
+  ]
+}
