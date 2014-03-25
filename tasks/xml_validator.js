@@ -2,7 +2,7 @@
  * grunt-xml-validator
  * https://github.com/panzic/grunt-xml-validator
  *
- * Copyright (c) 2014 Carlo
+ * Copyright (c) 2014 Carlo 'kj'
  * Licensed under the MIT license.
  */
 
@@ -20,10 +20,19 @@ module.exports = function(grunt) {
       separator: ', '
     });
 
-    // Iterate over all specified file groups.
-    this.files.forEach(function(f) {
+    // Iterate over all specified file groups.		
+    this.filesSrc.forEach(function(f) {
+
+    	
+
+    	var content = grunt.file.read(f);
+
+
+    	grunt.log.writeln(content);
+
+
       // Concat specified files.
-      var src = f.src.filter(function(filepath) {
+    /*  var src = f.src.filter(function(filepath) {
         // Warn on and remove invalid source files (if nonull was set).
         if (!grunt.file.exists(filepath)) {
           grunt.log.warn('Source file "' + filepath + '" not found.');
@@ -32,18 +41,21 @@ module.exports = function(grunt) {
           return true;
         }
       }).map(function(filepath) {
+
+
         // Read file source.
         return grunt.file.read(filepath);
+
       }).join(grunt.util.normalizelf(options.separator));
 
       // Handle options.
       src += options.punctuation;
 
       // Write the destination file.
-      grunt.file.write(f.dest, src);
+      //grunt.file.write(f.dest, src);
 
       // Print a success message.
-      grunt.log.writeln('File "' + f.dest + '" created.');
+      //grunt.log.writeln('File "' + f.dest + '" created.');*/
     });
   });
 
