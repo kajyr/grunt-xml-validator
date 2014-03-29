@@ -10,53 +10,36 @@
 
 module.exports = function(grunt) {
 
-  // Please see the Grunt documentation for more information regarding task
-  // creation: http://gruntjs.com/creating-tasks
+	// Please see the Grunt documentation for more information regarding task
+	// creation: http://gruntjs.com/creating-tasks
 
-  grunt.registerMultiTask('xml_validator', 'Grunt plugin to validate XML files', function() {
-    // Merge task-specific and/or target-specific options with these defaults.
-    var options = this.options({
-      punctuation: '.',
-      separator: ', '
-    });
+	grunt.registerMultiTask('xml_validator', 'Grunt plugin to validate XML files', function() {
+		// Merge task-specific and/or target-specific options with these defaults.
+		var libxmljs = require("libxmljs");
 
-    // Iterate over all specified file groups.		
-    this.filesSrc.forEach(function(f) {
+		var valid = 0;
+		var fail = false;
 
-    	
+		this.filesSrc.forEach(function(f) {
 
-    	var content = grunt.file.read(f);
+			var xml = grunt.file.read(f);
 
+			try {
+				var xmlDoc = libxmljs.parseXml(xml);
+				valid++;
+				grunt.verbose.ok(f, 'valid');
+			} catch(e) {
+				grunt.log.error(f + ' not valid');
+				fail = true;
+			}
+		});
 
-    	grunt.log.writeln(content);
-
-
-      // Concat specified files.
-    /*  var src = f.src.filter(function(filepath) {
-        // Warn on and remove invalid source files (if nonull was set).
-        if (!grunt.file.exists(filepath)) {
-          grunt.log.warn('Source file "' + filepath + '" not found.');
-          return false;
-        } else {
-          return true;
-        }
-      }).map(function(filepath) {
-
-
-        // Read file source.
-        return grunt.file.read(filepath);
-
-      }).join(grunt.util.normalizelf(options.separator));
-
-      // Handle options.
-      src += options.punctuation;
-
-      // Write the destination file.
-      //grunt.file.write(f.dest, src);
-
-      // Print a success message.
-      //grunt.log.writeln('File "' + f.dest + '" created.');*/
-    });
-  });
+		if (fail) {
+			grunt.fail.warn('Some fail are not valid');
+		} else {
+			grunt.log.ok( valid, ' files valid');
+		}
+			
+	});
 
 };
