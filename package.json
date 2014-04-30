@@ -22,7 +22,7 @@
     }
   ],
   "engines": {
-    "node": ">= 0.8.0"
+    "node": ">= 0.10.0"
   },
   "scripts": {
     "test": "grunt test"
@@ -40,6 +40,6 @@
     "gruntplugin"
   ],
   "dependencies": {
-    "libxmljs": "^0.8.1"
+    "xmldom": "0.1.19"
   }
 }

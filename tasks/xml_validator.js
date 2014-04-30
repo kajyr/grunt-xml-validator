@@ -10,12 +10,9 @@
 
 module.exports = function(grunt) {
 
-	// Please see the Grunt documentation for more information regarding task
-	// creation: http://gruntjs.com/creating-tasks
-
 	grunt.registerMultiTask('xml_validator', 'Grunt plugin to validate XML files', function() {
-		// Merge task-specific and/or target-specific options with these defaults.
-		var libxmljs = require("libxmljs");
+
+		var DOMParser = require('xmldom').DOMParser;
 
 		var valid = 0;
 		var fail = false;
@@ -24,20 +21,20 @@ module.exports = function(grunt) {
 
 			var xml = grunt.file.read(f);
 
-			try {
-				var xmlDoc = libxmljs.parseXml(xml);
-				valid++;
-				grunt.verbose.ok(f, 'valid');
-			} catch(e) {
-				grunt.log.error(f + ' not valid');
-				fail = true;
-			}
+			var doc = new DOMParser({
+			    locator:{},
+			    errorHandler: function(level, msg) {
+			    	fail = true
+			    }
+			}).parseFromString(xml,'text/xml');
+
+
 		});
 
 		if (fail) {
 			grunt.fail.warn('Some fail are not valid');
 		} else {
-			grunt.log.ok( valid, ' files valid');
+			grunt.log.ok('Files valid');
 		}
 			
 	});
