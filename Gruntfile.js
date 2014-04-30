@@ -20,19 +20,22 @@ module.exports = function(grunt) {
       ],
       options: {
         jshintrc: '.jshintrc',
-      },
+      }
     },
 
     // Configuration to be run (and then tested).
     xml_validator: {
-      default: {
-        src: [	'test/fixtures/example_ok.xml', 'test/fixtures/example_fail.xml'  ]
+      valid: {
+        src: [	'test/fixtures/example_ok.xml' ]
+      },
+      invalid: {
+      	src: [ 'test/fixtures/example_fail.xml' ]
       }
     },
 
     // Unit tests.
     nodeunit: {
-      tests: ['test/*_test.js'],
+      tests: ['test/test_*.js'],
     },
 
   });
