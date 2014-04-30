@@ -37,7 +37,9 @@
     "grunt": "~0.4.4"
   },
   "keywords": [
-    "gruntplugin"
+    "gruntplugin",
+    "validator",
+    "xml"
   ],
   "dependencies": {
     "xmldom": "0.1.19"
