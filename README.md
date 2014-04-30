@@ -2,6 +2,8 @@
 
 > Grunt plugin to validate XML files
 
+[![Build Status](https://travis-ci.org/kajyr/grunt-xml-validator.svg)](https://travis-ci.org/kajyr/grunt-xml-validator)
+
 ## Getting Started
 This plugin requires Grunt `~0.4.4`
 
