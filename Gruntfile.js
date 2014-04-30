@@ -26,10 +26,10 @@ module.exports = function(grunt) {
     // Configuration to be run (and then tested).
     xml_validator: {
       valid: {
-        src: [	'test/fixtures/example_ok.xml' ]
+			src: [	'test/fixtures/example_ok.xml' ]
       },
       invalid: {
-      	src: [ 'test/fixtures/example_fail.xml' ]
+			src: [ 'test/fixtures/example_fail.xml' ]
       }
     },
 
@@ -49,7 +49,7 @@ module.exports = function(grunt) {
 
   // Whenever the "test" task is run, first clean the "tmp" dir, then run this
   // plugin's task(s), then test the result.
-  grunt.registerTask('test', ['nodeunit']);
+  grunt.registerTask('test', ['jshint', 'nodeunit']);
 
   // By default, lint and run all tests.
   grunt.registerTask('default', ['jshint', 'test']);

@@ -20,21 +20,21 @@ module.exports = function(grunt) {
 		this.filesSrc.forEach(function(f) {
 
 			var xml = grunt.file.read(f);
-
 			var doc = new DOMParser({
-			    locator:{},
-			    errorHandler: function(level, msg) {
-			    	fail = true
-			    }
+				locator:{},
+				errorHandler: function(level, msg) {
+					fail = true;
+					grunt.log.error(f + "\tnot valid");
+				}
 			}).parseFromString(xml,'text/xml');
 
 
 		});
 
 		if (fail) {
-			grunt.fail.warn('Some fail are not valid');
+			grunt.fail.warn('Some files are not valid');
 		} else {
-			grunt.log.ok('Files valid');
+			grunt.log.ok(this.filesSrc.length + ' files valid');
 		}
 			
 	});

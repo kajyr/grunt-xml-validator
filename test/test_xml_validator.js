@@ -32,23 +32,23 @@ exports.xml_validator = {
 
 	test.expect(1);
 
-  	exec('grunt xml_validator:valid', function(error, stdout) { 
-  		var success = error === null;
-  		test.ok(success, 'Valid xml files are considered valid');
-  		test.done();
-  	});
+	exec('grunt xml_validator:valid', function(error, stdout) { 
+		var success = error === null;
+		test.ok(success, 'Valid xml files are considered valid');
+		test.done();
+	});
 
-  },
-  invalid: function(test) {
+	},
+	invalid: function(test) {
 
 	test.expect(1);
 
-  	exec('grunt xml_validator:invalid', function(error, stdout) { 
-  		var success = error !== null;
-  		test.ok(success, 'Invalid xml files are not considered invalid');
-  		test.done();
+	exec('grunt xml_validator:invalid', function(error, stdout) { 
+		var success = error !== null;
+		test.ok(success, 'Invalid xml files are not considered invalid');
+		test.done();
 
-  	});
+	});
 
   }
 };

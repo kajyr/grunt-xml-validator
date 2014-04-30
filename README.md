@@ -35,6 +35,9 @@ grunt.initConfig({
 ```
 
 ## Release History
+
+1.1.1 - Shows failing files or count of valid files
+
 1.1.0 - Removed libxmljs due to incompatibility with Windows. Moved to xmldom.
 
 1.0.0 - let's give it a try :)
