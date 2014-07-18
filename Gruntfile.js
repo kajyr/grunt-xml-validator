@@ -12,17 +12,7 @@ module.exports = function(grunt) {
 
   // Project configuration.
   grunt.initConfig({
-    jshint: {
-      all: [
-        'Gruntfile.js',
-        'tasks/*.js',
-        '<%= nodeunit.tests %>',
-      ],
-      options: {
-        jshintrc: '.jshintrc',
-      }
-    },
-
+ 
     // Configuration to be run (and then tested).
     xml_validator: {
       valid: {
@@ -38,20 +28,38 @@ module.exports = function(grunt) {
       tests: ['test/test_*.js'],
     },
 
+    coffee: {
+			compile: {
+				files: {
+					'tasks/xml_validator.js': ['tasks/xml_validator.coffee']
+				}
+			  },
+		},
+		watch: {
+			scripts: {
+				files: ['tasks/*.coffee'],
+				tasks: ['coffee'],
+				options: {
+					spawn: false,
+				},
+			},
+		}
+
   });
 
   // Actually load this plugin's task(s).
   grunt.loadTasks('tasks');
 
   // These plugins provide necessary tasks.
-  grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-nodeunit');
+  grunt.loadNpmTasks('grunt-contrib-coffee');
+  grunt.loadNpmTasks('grunt-contrib-watch');
 
   // Whenever the "test" task is run, first clean the "tmp" dir, then run this
   // plugin's task(s), then test the result.
-  grunt.registerTask('test', ['jshint', 'nodeunit']);
+  grunt.registerTask('test', ['coffee', 'nodeunit']);
 
   // By default, lint and run all tests.
-  grunt.registerTask('default', ['jshint', 'test']);
+  grunt.registerTask('default', ['coffee', 'test']);
 
 };
