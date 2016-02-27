@@ -24,7 +24,7 @@ module.exports = (grunt) ->
 
 				errorHandler: (level, msg) ->
 					fail = true
-					grunt.log.error f + "\tnot valid"
+					grunt.log.error f + "\tnot valid: " + msg
 
 			}).parseFromString(xml,'text/xml')
 

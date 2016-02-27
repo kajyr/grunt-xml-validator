@@ -12,7 +12,7 @@
           locator: {},
           errorHandler: function(level, msg) {
             fail = true;
-            return grunt.log.error(f + "\tnot valid");
+            return grunt.log.error(f + "\tnot valid: " + msg);
           }
         }).parseFromString(xml, 'text/xml');
       });
