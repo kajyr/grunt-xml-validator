@@ -36,8 +36,8 @@ grunt.initConfig({
 
 ## Release History
 
-1.1.1 - Shows failing files or count of valid files
-
-1.1.0 - Removed libxmljs due to incompatibility with Windows. Moved to xmldom.
-
-1.0.0 - let's give it a try :)
+1.1.3. Show validation error message in output 
+1.1.2. Updated peerDependency to support grunt 1.0.0
+1.1.1. Shows failing files or count of valid files
+1.1.0. Removed libxmljs due to incompatibility with Windows. Moved to xmldom.
+1.0.0. let's give it a try :)
