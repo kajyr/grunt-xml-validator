@@ -1,7 +1,7 @@
 {
   "name": "grunt-xml-validator",
   "description": "Grunt plugin to validate XML files",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "homepage": "https://github.com/kajyr/grunt-xml-validator",
   "author": {
     "name": "Carlo",
@@ -28,11 +28,11 @@
     "test": "grunt test"
   },
   "devDependencies": {
-    "grunt-contrib-clean": "~0.4.0",
-    "grunt-contrib-nodeunit": "~0.2.0",
-    "grunt": "~0.4.4",
-    "grunt-contrib-coffee": "~0.10.1",
-    "grunt-contrib-watch": "~0.6.1"
+    "grunt-contrib-clean": "~1.0.0",
+    "grunt-contrib-nodeunit": "~1.0.0",
+    "grunt": ">=0.4.4",
+    "grunt-contrib-coffee": "~1.0.0",
+    "grunt-contrib-watch": "~1.0.0"
   },
   "peerDependencies": {
     "grunt": ">=0.4.4"
